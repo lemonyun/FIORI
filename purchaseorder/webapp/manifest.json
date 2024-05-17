@@ -20,9 +20,18 @@
         "uri": "/sap/opu/odata/sap/ZBA_GW_SRV/",
         "type": "OData",
         "settings": {
-          "annotations": [],
+          "annotations": [
+              "annotation"
+          ],
           "localUri": "localService/metadata.xml",
           "odataVersion": "2.0"
+        }
+      },
+      "annotation":{
+        "type" : "ODataAnnotation",
+        "uri": "model/annotation.xml",
+        "settings": {
+          "localUri": "model/annotation.xml"
         }
       }
     }
