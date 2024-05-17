@@ -12,19 +12,16 @@
         <edmx:Include Namespace="ZBA_GW_SRV" Alias="SAP"/>
     </edmx:Reference>
     <edmx:DataServices>
-        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm">
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="">
             <Annotations Target='ZBA_GW_SRV.PurchaseEntity'>
                 <Annotation Term="UI.SelectionFields">
                     <Collection >
-                        <PropertyPath> Pocode</PropertyPath>
-                        <PropertyPath> Vencode</PropertyPath>
-                        <PropertyPath> Oddate</PropertyPath>
+                        <PropertyPath>Pocode</PropertyPath>
+                        <PropertyPath>Vencode</PropertyPath>
+                        <PropertyPath>Oddate</PropertyPath>
                     
-
                     </Collection>
-                
                 </Annotation >
-
                 <Annotation Term="UI.LineItem"  >
                     <Collection >
                         <Record Type="UI.DataField">

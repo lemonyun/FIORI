@@ -1,27 +1,54 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.f" xmlns:sv="sap.ui.comp.smartvariants" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable" controllerName="purchaseorder.controller.Main" displayBlock="true">
-<Page id="page" title="{i18n>title}">
-<f:DynamicPage showFooter="false">
-<f:title>
-<f:DynamicPageTitle>
-<f:heading>
-<sv:SmartVariantManagement id="idSmartVariant" persistencyKey="SmartFilter_Variant" showShare="true" showExecuteOnSelection="true"/>
-</f:heading>
-</f:DynamicPageTitle>
-</f:title>
-<f:header>
-<f:DynamicPageHeader>
-<f:content>
-<smartFilterBar:SmartFilterBar id="idSmartFilterBar" useToolbar="false" smartVariant="idSmartVariant" 
-entitySet="PurchaseEntitySet" persistencyKey="SmartFilter_Explored"/>
-</f:content>
-</f:DynamicPageHeader>
-</f:header>
-<f:content>
-<smartTable:SmartTable id="idSmartTable" entitySet="PurchaseEntitySet" 
-smartFilterId="idSmartFilterBar" useVariantManagement="true" useTablePersonalisation="true" 
-smartVariant="ResponsiveTable" header="{i18n>listHeaderTitle}" tableType="ResponsiveTable" 
-enableAutoBinding="true" class="sapUiResponsiveContentPadding" showRowCount="true" demandPopin="true"/>
-</f:content>
-</f:DynamicPage>
-</Page>
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:sv="sap.ui.comp.smartvariants"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable" controllerName="purchaseorder.controller.Main" displayBlock="true">
+    <Page id="page" title="{i18n>title}">
+        <f:DynamicPage showFooter="false">
+            <f:title>
+                <f:DynamicPageTitle>
+                    <f:heading>
+                        <sv:SmartVariantManagement id="idSmartVariant" persistencyKey="SmartFilter_Variant" showShare="true" showExecuteOnSelection="true"/>
+                    </f:heading>
+                </f:DynamicPageTitle>
+            </f:title>
+            <f:header>
+                <f:DynamicPageHeader>
+                    <f:content>
+                        <smartFilterBar:SmartFilterBar 
+                        id="idSmartFilterBar" 
+                        useToolbar="false" 
+                        smartVariant="idSmartVariant" 
+                        entitySet="PurchaseEntitySet" 
+                        persistencyKey="SmartFilter_Explored"/>
+                    </f:content>
+                    <!-- <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="PurchaseEntitySet">
+                        <smartFilterBar:controlConfiguration>
+                            <smartFilterBar:ControlConfiguration key="PostingDate" visibleInAdvancedArea="true"/>
+                            <smartFilterBar:ControlConfiguration key="CREATION_DATE" visibleInAdvancedArea="true" conditionType="{ module: 'sap.ui.comp.config.condition.DateRangeType' }"/>
+                            <smartFilterBar:ControlConfiguration key="CLOSE_DATE" visibleInAdvancedArea="true" conditionType="{ module: 'sap.ui.comp.config.condition.DateRangeType', defaultOperation: 'THISYEAR' }"/>
+                        </smartFilterBar:controlConfiguration>
+                    
+                    </smartFilterBar:SmartFilterBar> -->
+
+                </f:DynamicPageHeader>
+            </f:header>
+            <f:content>
+                <smartTable:SmartTable 
+                id="idSmartTable" 
+                entitySet="PurchaseEntitySet" 
+                smartFilterId="idSmartFilterBar" 
+                useVariantManagement="true" 
+                useTablePersonalisation="true" 
+                smartVariant="ResponsiveTable" 
+                header="{i18n>listHeaderTitle}" 
+                tableType="ResponsiveTable" 
+                enableAutoBinding="true" 
+                class="sapUiResponsiveContentPadding"
+                showRowCount="true" 
+                demandPopin="true"/>
+            </f:content>
+        </f:DynamicPage>
+    </Page>
 </mvc:View>
