@@ -1,0 +1,58 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:sv="sap.ui.comp.smartvariants"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:core="sap.ui.core" 
+    controllerName="purchaseorder.controller.Detail" displayBlock="true">
+    <Page id="page" title="{i18n>title}">
+        <f:DynamicPage showFooter="false">
+            <!-- <f:title>
+                <f:DynamicPageTitle>
+                    <f:heading>
+                        <sv:SmartVariantManagement id="idSmartVariant" persistencyKey="SmartFilter_Variant" showShare="true" showExecuteOnSelection="true"/>
+                    </f:heading>
+                </f:DynamicPageTitle>
+            </f:title> -->
+            <!-- <f:header>
+                <f:DynamicPageHeader>
+                    <f:content>
+                        <smartFilterBar:SmartFilterBar 
+                            id="smartFilterBar"
+                            entitySet="PurchaseItemEntitySet">
+                            <smartFilterBar:controlConfiguration>
+                                <smartFilterBar:ControlConfiguration
+                                    key="Category" visibleInAdvancedArea="true"
+                                    preventInitialDataFetchInValueHelpDialog="false">
+                                </smartFilterBar:ControlConfiguration>
+                            </smartFilterBar:controlConfiguration>
+                        </smartFilterBar:SmartFilterBar>
+                    </f:content>
+
+                </f:DynamicPageHeader>
+            </f:header> -->
+            <f:content>
+                <smartTable:SmartTable 
+                id="idItemSmartTable" 
+                entitySet="PurchaseItemEntitySet" 
+                smartFilterId="smartFilterBar" 
+                useVariantManagement="true" 
+                useTablePersonalisation="true" 
+                smartVariant="ResponsiveTable" 
+                header="{i18n>ItemTitle}" 
+                tableType="ResponsiveTable" 
+                beforeRebindTable="onBeforeRebindTable"
+                enableAutoBinding="true" 
+                class="sapUiResponsiveContentPadding"
+                showRowCount="true" 
+                demandPopin="true"
+                requestAtLeastFields="Pocode"
+/>
+
+            </f:content>
+        </f:DynamicPage>
+    </Page>
+</mvc:View>
+
+<!-- requestAtLeastFields="Pocode,Matcode,DueDate" -->

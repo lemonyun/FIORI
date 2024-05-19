@@ -3,7 +3,9 @@
     xmlns:f="sap.f"
     xmlns:sv="sap.ui.comp.smartvariants"
     xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
-    xmlns:smartTable="sap.ui.comp.smarttable" controllerName="purchaseorder.controller.Main" displayBlock="true">
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:core="sap.ui.core" 
+    controllerName="purchaseorder.controller.Main" displayBlock="true">
     <Page id="page" title="{i18n>title}">
         <f:DynamicPage showFooter="false">
             <f:title>
@@ -23,14 +25,6 @@
                         entitySet="PurchaseEntitySet" 
                         persistencyKey="SmartFilter_Explored"/>
                     </f:content>
-                    <!-- <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="PurchaseEntitySet">
-                        <smartFilterBar:controlConfiguration>
-                            <smartFilterBar:ControlConfiguration key="PostingDate" visibleInAdvancedArea="true"/>
-                            <smartFilterBar:ControlConfiguration key="CREATION_DATE" visibleInAdvancedArea="true" conditionType="{ module: 'sap.ui.comp.config.condition.DateRangeType' }"/>
-                            <smartFilterBar:ControlConfiguration key="CLOSE_DATE" visibleInAdvancedArea="true" conditionType="{ module: 'sap.ui.comp.config.condition.DateRangeType', defaultOperation: 'THISYEAR' }"/>
-                        </smartFilterBar:controlConfiguration>
-                    
-                    </smartFilterBar:SmartFilterBar> -->
 
                 </f:DynamicPageHeader>
             </f:header>
@@ -47,7 +41,30 @@
                 enableAutoBinding="true" 
                 class="sapUiResponsiveContentPadding"
                 showRowCount="true" 
-                demandPopin="true"/>
+                demandPopin="true">
+
+                    <smartTable:items>
+                        <Table sticky="ColumnHeaders,HeaderToolbar" growing="true" growingScrollToLoad="true" fixedLayout="false"
+                                itemPress="handleItemPress" mode="SingleSelectMaster">
+                            <columns>
+                                <Column>
+                                    <customData>
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Checkstate", "leadingProperty": "Checkstate", "columnIndex": 5}'/>
+                                    </customData>
+                                    <Text text="승인상태"></Text>
+                                </Column>
+                            </columns>
+
+                            <items>
+                                <ColumnListItem type="Navigation">
+                                    <ObjectStatus text="{= ${Checkstate} > '1' ? '승인' : '미승인'}" state="{path: 'Checkstate', formatter: '.formatter.checkstate'}"></ObjectStatus>
+                                </ColumnListItem>
+                            </items>
+
+                        </Table>               
+                    </smartTable:items>
+
+                </smartTable:SmartTable>
             </f:content>
         </f:DynamicPage>
     </Page>

@@ -13,6 +13,8 @@
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="">
+
+        
             <Annotations Target='ZBA_GW_SRV.PurchaseEntity'>
                 <Annotation Term="UI.SelectionFields">
                     <Collection >
@@ -40,15 +42,92 @@
                             <PropertyValue Property="Value" Path="Oddate"/>
                         </Record >
 
-                         <Record Type="UI.DataField">
+                         <!-- <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Checkstate"/>
+                        </Record > -->
+           
+                    </Collection>
+
+                </Annotation >
+            </Annotations >
+                
+
+
+
+            <Annotations Target='ZBA_GW_SRV.PurchaseItemEntity'>
+                <Annotation Term="UI.SelectionFields">
+                    <Collection >
+                        <PropertyPath>Pocode</PropertyPath>
+                        
+                    </Collection>
+                </Annotation >
+
+                <Annotation Term="UI.LineItem"  >
+                    <Collection >
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Pocode"/>
                         </Record >
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Matcode"/>
+                        </Record >     
+
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Duedate"/>
+                        </Record >
+
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Matname"/>
+                        </Record >
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Quant"/>
+                        </Record >
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Unit"/>
+                        </Record >
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="TotPrice"/>
+                        </Record >
+
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Currkey"/>
+                        </Record >
+                         <!-- <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Checkstate"/>
+                        </Record > -->
            
                     </Collection>
 
                 </Annotation >
             </Annotations >
 
+
+            <Annotations Target='ZBA_GW_SRV.PurchaseEntity/Vencode'>
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="HVenEntitySet"  />
+                        <PropertyValue Property="Parameters">
+                            <Collection >
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Vencode"/>
+                                    <PropertyValue Property="ValueListProperty" String="Vencode"/>
+                                    
+                                </Record >
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Venname"/>
+                                    
+                                </Record >            
+
+                            </Collection>
+
+                        </PropertyValue>
+
+                    </Record>
+                </Annotation>
+            </Annotations >        
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>

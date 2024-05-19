@@ -108,6 +108,11 @@
           "target": [
             "TargetMain"
           ]
+        },
+        {
+          "name": "Detail",
+          "pattern": "Detail/{key}",
+          "target": "Detail"
         }
       ],
       "targets": {
@@ -117,6 +122,10 @@
           "clearControlAggregation": false,
           "viewId": "Main",
           "viewName": "Main"
+        },
+        "Detail":{
+          "viewType": "XML",
+          "viewName": "Detail"
         }
       }
     },
