@@ -5,9 +5,9 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "vapdf/model/models"
+        "vapdf/model/models",       
     ],
-    function (UIComponent, Device, models) {
+    function (UIComponent, Device, models) {//
         "use strict";
 
         return UIComponent.extend("vapdf.Component", {
@@ -29,6 +29,7 @@ sap.ui.define([
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
+
             }
         });
     }

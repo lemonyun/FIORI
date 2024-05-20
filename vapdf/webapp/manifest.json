@@ -87,6 +87,11 @@
         {
           "uri": "css/style.css"
         }
+      ],
+      "js": [
+        {
+          "uri": "libs/jspdf.min.js"
+        }
       ]
     },
     "routing": {

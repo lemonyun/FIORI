@@ -25,11 +25,11 @@
                 demandPopin="true">
                 <smartTable:customToolbar>
                     <OverflowToolbar design="Transparent">
-                    <ToolbarSpacer/>
-                    <OverflowToolbarButton icon="sap-icon://activate" tooltip="Create PDF" press="OnCreatePDF"/>
+                        <ToolbarSpacer/>
+                        <OverflowToolbarButton icon="sap-icon://pdf-attachment" tooltip="Create PDF" press="onCreatePDF"/>
 
                     </OverflowToolbar>
-                    </smartTable:customToolbar>
+                </smartTable:customToolbar>
                     <!-- <smartTable:items>
                         <Table sticky="ColumnHeaders,HeaderToolbar" growing="true" growingScrollToLoad="true" fixedLayout="false"
                                 itemPress="handleItemPress" mode="SingleSelectMaster">
