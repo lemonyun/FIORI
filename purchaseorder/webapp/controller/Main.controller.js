@@ -14,12 +14,22 @@ sap.ui.define([
 
             },
             handleItemPress: function(oEvent) {
+                debugger;
                 var oTable = oEvent.getSource();
                 var oContext = oTable.getSelectedItem().getBindingContext();
+                var aPocodes = oContext.getPath().split("'");
 
                 this.getOwnerComponent().getRouter().navTo("Detail", {
-                    key: oContext.getPath().substr(1)
-                }, false);
+                    Pocode : aPocodes[1]
+                }, true);
+
+                // var oTable = oEvent.getSource();
+                // var oContext = oTable.getSelectedItem().getBindingContext();
+
+                // this.getOwnerComponent().getRouter().navTo("Detail", {
+                //     key: oContext.getPath().substr(1)
+                // }, false);
+
             }
             
         });

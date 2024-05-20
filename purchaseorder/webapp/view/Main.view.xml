@@ -8,13 +8,13 @@
     controllerName="purchaseorder.controller.Main" displayBlock="true">
     <Page id="page" title="{i18n>title}">
         <f:DynamicPage showFooter="false">
-            <f:title>
+            <!-- <f:title>
                 <f:DynamicPageTitle>
                     <f:heading>
                         <sv:SmartVariantManagement id="idSmartVariant" persistencyKey="SmartFilter_Variant" showShare="true" showExecuteOnSelection="true"/>
                     </f:heading>
                 </f:DynamicPageTitle>
-            </f:title>
+            </f:title> -->
             <f:header>
                 <f:DynamicPageHeader>
                     <f:content>

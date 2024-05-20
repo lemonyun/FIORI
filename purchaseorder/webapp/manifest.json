@@ -111,7 +111,7 @@
         },
         {
           "name": "Detail",
-          "pattern": "Detail/{key}",
+          "pattern": "Detail/{Pocode}",
           "target": "Detail"
         }
       ],

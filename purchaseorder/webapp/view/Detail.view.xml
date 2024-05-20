@@ -1,58 +1,56 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m"
-    xmlns:f="sap.f"
-    xmlns:sv="sap.ui.comp.smartvariants"
-    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
-    xmlns:smartTable="sap.ui.comp.smarttable"
-    xmlns:core="sap.ui.core" 
-    controllerName="purchaseorder.controller.Detail" displayBlock="true">
-    <Page id="page" title="{i18n>title}">
-        <f:DynamicPage showFooter="false">
-            <!-- <f:title>
-                <f:DynamicPageTitle>
-                    <f:heading>
-                        <sv:SmartVariantManagement id="idSmartVariant" persistencyKey="SmartFilter_Variant" showShare="true" showExecuteOnSelection="true"/>
-                    </f:heading>
-                </f:DynamicPageTitle>
-            </f:title> -->
-            <!-- <f:header>
-                <f:DynamicPageHeader>
-                    <f:content>
-                        <smartFilterBar:SmartFilterBar 
-                            id="smartFilterBar"
-                            entitySet="PurchaseItemEntitySet">
-                            <smartFilterBar:controlConfiguration>
-                                <smartFilterBar:ControlConfiguration
-                                    key="Category" visibleInAdvancedArea="true"
-                                    preventInitialDataFetchInValueHelpDialog="false">
-                                </smartFilterBar:ControlConfiguration>
-                            </smartFilterBar:controlConfiguration>
-                        </smartFilterBar:SmartFilterBar>
-                    </f:content>
+<mvc:View controllerName="purchaseorder.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="idPage" title="title" showNavButton="true" navButtonPress="onNavBack"> <!-- nav버튼을 눌러 main 뷰로 돌아가기-->
+        <content>
+            <Table id="idTable"                 
+                items="{
+                    path : '/PurchaseItemEntitySet',
+                    sorter : { path : 'Duedate', descending: false }
+                }">
 
-                </f:DynamicPageHeader>
-            </f:header> -->
-            <f:content>
-                <smartTable:SmartTable 
-                id="idItemSmartTable" 
-                entitySet="PurchaseItemEntitySet" 
-                smartFilterId="smartFilterBar" 
-                useVariantManagement="true" 
-                useTablePersonalisation="true" 
-                smartVariant="ResponsiveTable" 
-                header="{i18n>ItemTitle}" 
-                tableType="ResponsiveTable" 
-                beforeRebindTable="onBeforeRebindTable"
-                enableAutoBinding="true" 
-                class="sapUiResponsiveContentPadding"
-                showRowCount="true" 
-                demandPopin="true"
-                requestAtLeastFields="Pocode"
-/>
-
-            </f:content>
-        </f:DynamicPage>
+                <columns>
+                    <Column width="6em" hAlign="Begin">
+                        <Text text="구매오더코드" />
+                    </Column>
+                    <Column width="6em" hAlign="Begin">
+                        <Text text="자재코드" />
+                    </Column>
+                    <Column width="6em" hAlign="End">
+                        <Text text="납기일" />
+                    </Column>
+                    <Column width="6em" hAlign="Begin">
+                        <Text text="자재명" />
+                    </Column>
+                    <Column width="6em" hAlign="End">
+                        <Text text="수량" />
+                    </Column>
+                    <Column width="6em" hAlign="End">
+                        <Text text="단위" />
+                    </Column>
+                     <Column width="6em" hAlign="End">
+                        <Text text="총 금액" />
+                    </Column> 
+                    <Column width="6em" hAlign="End">
+                        <Text text="통화" />
+                    </Column>
+                    
+                </columns>
+                <items>
+                    <ColumnListItem >
+                        <cells>
+                            <Text text="{Pocode}"/>
+                            <Text text="{Matcode}" />
+                            <Text text="{Duedate}" />
+                            <Text text="{Matname}" />
+                            <Text text="{Quant}" />
+                            <Text text="{Unit}" />
+                            <Text text="{Totprice}" />
+                            <Text text="{Currkey}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
     </Page>
 </mvc:View>
-
-<!-- requestAtLeastFields="Pocode,Matcode,DueDate" -->

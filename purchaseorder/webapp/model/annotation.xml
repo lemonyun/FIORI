@@ -58,6 +58,7 @@
                 <Annotation Term="UI.SelectionFields">
                     <Collection >
                         <PropertyPath>Pocode</PropertyPath>
+                        <PropertyPath>Duedate</PropertyPath>
                         
                     </Collection>
                 </Annotation >
