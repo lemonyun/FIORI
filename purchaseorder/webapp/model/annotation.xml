@@ -52,8 +52,6 @@
             </Annotations >
                 
 
-
-
             <Annotations Target='ZBA_GW_SRV.PurchaseItemEntity'>
                 <Annotation Term="UI.SelectionFields">
                     <Collection >

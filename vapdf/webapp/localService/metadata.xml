@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZBA_GW_FI_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="VAEntity" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vatcode"/>
+                    <PropertyRef Name="Docno"/>
+                </Key>
+                <Property Name="Vatcode" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="부가세코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Docno" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="전표번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Taxcode" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="세금코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Agcode" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="지점코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vencode" Type="Edm.String" Nullable="false" MaxLength="6" sap:unicode="false" sap:label="거래처코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Docdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="전기일" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vfiscal" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="회계연도" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Quarter" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="분기" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Venno" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="사업자등록번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Invotype" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="세금계산서종류" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Samount" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:label="금액" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Bamount" Type="Edm.Decimal" Nullable="false" Precision="24" Scale="3" sap:unicode="false" sap:label="금액" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZBA_GW_FI_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="VAEntitySet" EntityType="ZBA_GW_FI_SRV.VAEntity" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://edu.bgis.co.kr:8001/sap/opu/odata/sap/ZBA_GW_FI_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://edu.bgis.co.kr:8001/sap/opu/odata/sap/ZBA_GW_FI_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

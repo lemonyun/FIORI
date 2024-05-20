@@ -1,0 +1,58 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:sv="sap.ui.comp.smartvariants"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:core="sap.ui.core" 
+    controllerName="vapdf.controller.Main" displayBlock="true">
+    <Page id="page" title="{i18n>title}">
+        <f:DynamicPage showFooter="false">
+
+            <f:content>
+                <smartTable:SmartTable 
+                id="idSmartTable" 
+                entitySet="VAEntitySet" 
+                smartFilterId="idSmartFilterBar" 
+                useVariantManagement="true" 
+                useTablePersonalisation="true" 
+                smartVariant="ResponsiveTable" 
+                header="{i18n>listHeaderTitle}" 
+                tableType="ResponsiveTable" 
+                enableAutoBinding="true" 
+                class="sapUiResponsiveContentPadding"
+                showRowCount="true" 
+                demandPopin="true">
+                <smartTable:customToolbar>
+                    <OverflowToolbar design="Transparent">
+                    <ToolbarSpacer/>
+                    <OverflowToolbarButton icon="sap-icon://activate" tooltip="Create PDF" press="OnCreatePDF"/>
+
+                    </OverflowToolbar>
+                    </smartTable:customToolbar>
+                    <!-- <smartTable:items>
+                        <Table sticky="ColumnHeaders,HeaderToolbar" growing="true" growingScrollToLoad="true" fixedLayout="false"
+                                itemPress="handleItemPress" mode="SingleSelectMaster">
+                            <columns>
+                                <Column>
+                                    <customData>
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Checkstate", "leadingProperty": "Checkstate", "columnIndex": 5}'/>
+                                    </customData>
+                                    <Text text="승인상태"></Text>
+                                </Column>
+                            </columns>
+
+                            <items>
+                                <ColumnListItem type="Navigation">
+                                    <ObjectStatus text="{= ${Checkstate} > '1' ? '승인' : '미승인'}" state="{path: 'Checkstate', formatter: '.formatter.checkstate'}"></ObjectStatus>
+                                </ColumnListItem>
+                            </items>
+
+                        </Table>               
+                    </smartTable:items>-->
+
+                </smartTable:SmartTable>
+            </f:content>
+        </f:DynamicPage>
+    </Page>
+</mvc:View>
