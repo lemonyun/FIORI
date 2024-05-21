@@ -8,7 +8,19 @@
     controllerName="vapdf.controller.Main" displayBlock="true">
     <Page id="page" title="{i18n>title}">
         <f:DynamicPage showFooter="false">
+            <f:header>
+                <f:DynamicPageHeader>
+                    <f:content>
+                        <smartFilterBar:SmartFilterBar 
+                        id="idSmartFilterBar" 
+                        useToolbar="false" 
+                        smartVariant="idSmartVariant" 
+                        entitySet="VAEntitySet" 
+                        persistencyKey="SmartFilter_Explored"/>
+                    </f:content>
 
+                </f:DynamicPageHeader>
+            </f:header>
             <f:content>
                 <smartTable:SmartTable 
                 id="idSmartTable" 

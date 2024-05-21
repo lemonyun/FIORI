@@ -26,7 +26,6 @@ sap.ui.define([
                 var oArgu = oEvent.getParameters().arguments;
                 var aFilters = [];
 
-                debugger;
                 if(oArgu.Pocode) aFilters.push(new Filter('Pocode', FilterOperator.EQ, oArgu.Pocode));
 
                 var oFilter = new Filter({

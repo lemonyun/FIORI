@@ -16,6 +16,13 @@
 
         
             <Annotations Target='ZBA_GW_FI_SRV.VAEntity'>
+                <Annotation Term="UI.SelectionFields">
+                
+                    <Collection >
+                        <PropertyPath>Quarter</PropertyPath>
+                        
+                    </Collection>
+                </Annotation >
 
                 <Annotation Term="UI.LineItem"  >
                     <Collection >
@@ -32,19 +39,11 @@
                         </Record >
 
                          <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Agcode"/>
+                            <PropertyValue Property="Value" Path="Agname"/>
                         </Record >
 
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Docdate"/>
-                        </Record >
-
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Constatus"/>
-                        </Record >
-
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="Tstatus"/>
                         </Record >
            
                         <Record Type="UI.DataField">
