@@ -22,6 +22,9 @@ sap.ui.define([
 
         return Controller.extend("vapdf.controller.Main", {
             onInit: function () {
+                var oSmartFilterBar = this.getView().byId("idSmartFilterBar");
+                oSmartFilterBar._sMandatoryErrorMessage = "Fill me";
+
                 setTimeout(() => {
                     oDataModel = this.getView().getModel();
                     // var quarter = 1;
