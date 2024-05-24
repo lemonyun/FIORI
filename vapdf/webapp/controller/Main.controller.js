@@ -13,6 +13,7 @@ sap.ui.define([
 
         var _aCount = 0;
         var _vCount = 0;
+        var _oCount = 0;
 
         var quarterdate = [
             {stmonth : 1, stday : 1, edmonth : 3, edday : 31 },
@@ -373,6 +374,75 @@ sap.ui.define([
 
                                 yPos += 7;
                             }
+
+// ------------------------------------------------------------------온라인---------------------------------------------------------------
+
+                            doc.addPage();
+
+                                                        
+                            doc.addImage(pdfstr3, 'JPEG', 0, 0, 210, 290)
+                            doc.setFontSize(10)
+
+                            doc.text(64, 43, _fiscal) // 연도
+                            doc.text(86, 43, _quarter.toString()) // 분기
+
+                            doc.text(99, 43, quarterdate[_quarter - 1].stmonth.toString()) //
+                            doc.text(109, 43, quarterdate[_quarter - 1].stday.toString()) // 
+
+                            doc.text(123, 43, quarterdate[_quarter - 1].edmonth.toString()) // 
+                            doc.text(131, 43, quarterdate[_quarter - 1].edday.toString()) // 
+
+                            doc.text(155, 65, "101-01-12345") // 사업자등록번호
+                            doc.text(64, 65, "SYNC-REST")
+                            doc.text(64, 72, "김도현") // 성명(대표자)
+
+                            var aOnamount = []
+
+                            for (var i = 0; i < aResults.length; i++) { // 매출 공급가액 및 세액 합산
+                                if(aResults[i].Agcode == 'HB0000'){
+                                    _oCount++;
+                                    var bIsExist = false;
+                                    for (var j = 0; j < aOnamount.length; j++) {
+                                        if (aOnamount[j].Agcode == aResults[i].Agcode){
+                                            bIsExist = true;
+                                            break;
+                                        }
+                                    }
+
+                                    if (bIsExist) { // 있으면 금액 누적
+                                        aOnamount[j].Samount += Number(aResults[i].Samount); 
+                                        aOnamount[j].Bamount += Number(aResults[i].Bamount);
+                                        aOnamount[j].Count = aOnamount[j].Count + 1;
+                                    } else { // 없으면 추가
+                                        aOnamount.push ({ 
+                                            Agcode : aResults[i].Agcode, 
+                                            Samount : Number(aResults[i].Samount),  
+                                            Bamount : Number(aResults[i].Bamount), 
+                                            Count : 1, 
+                                            Venno : aResults[i].Venno
+                                        });
+                                    }
+                                }else {
+                                    continue;
+                                }
+
+                            }                            
+
+                            doc.text(80, 90, _oCount.toString()); // 매수
+                            doc.text(80, 130, _oCount.toString()); // 매수
+                            doc.text(100, 160, _oCount.toString()); // 매수
+
+                            doc.text(150, 90, aOnamount[0].Samount.toString()); // 매수
+                            doc.text(150, 130, aOnamount[0].Samount.toString()); // 매수
+                            doc.text(145, 160, aOnamount[0].Samount.toString()); // 매수
+
+                            doc.text(170, 90, aOnamount[0].Bamount.toString()); // 매수
+                            doc.text(170, 130, aOnamount[0].Bamount.toString()); // 매수
+                            doc.text(165, 160, aOnamount[0].Bamount.toString()); // 매수
+
+                            doc.text(74, 160, aOnamount[0].Venno); // 매수
+                            doc.text(40, 160, "2000-3000-xxxx-xxxx"); // 매수
+
 
                             doc.save("SamplePDF.pdf");
 
