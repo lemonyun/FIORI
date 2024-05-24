@@ -42,6 +42,10 @@
                             <PropertyValue Property="Value" Path="Agname"/>
                         </Record >
 
+                         <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Venname"/>
+                        </Record >
+
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Docdate"/>
                         </Record >
