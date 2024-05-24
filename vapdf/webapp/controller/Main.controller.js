@@ -77,8 +77,7 @@ sap.ui.define([
 
         return Controller.extend("vapdf.controller.Main", {
             onInit: function () {
-                
-                   
+
                     // var quarter = 1;
                     // var lo_pickedDateFilter = new sap.ui.model.Filter({
                     //     path: "Quarter",
