@@ -96,7 +96,14 @@ sap.ui.define([
 
                 var oSmartFilterBar = this.byId("idSmartFilterBar");
                 var oFilterData = oSmartFilterBar.getFilterData();
+
+                if(oFilterData.Quarter == undefined) {
+                    sap.m.MessageToast.show("분기를 먼저 입력해주세요");
+                    return;
+                }
                 _quarter = oFilterData.Quarter.ranges[0].value1;
+
+                   
 
                 var filter = new sap.ui.model.Filter("Quarter", sap.ui.model.FilterOperator.EQ, _quarter);
                 var aFilters = [];
@@ -189,17 +196,17 @@ sap.ui.define([
 
                             }
 
-                            var totSamount = 0;
-                            var totBamount = 0;
+                            var AgtotSamount = 0;
+                            var AgtotBamount = 0;
                             for (var i = 0; i < aAgamount.length; i++) {
-                                totSamount += Number(aAgamount[i].Samount);
-                                totBamount += Number(aAgamount[i].Bamount);
+                                AgtotSamount += Number(aAgamount[i].Samount);
+                                AgtotBamount += Number(aAgamount[i].Bamount);
                             }
                             // 숫자 48 000 000
                             
-                            _printAmount(122, totSamount, totBamount, doc, aAgamount, false);
-                            _printAmount(160, totSamount, totBamount, doc, aAgamount, false);
-                            _printAmount(178, totSamount, totBamount, doc, aAgamount, false);
+                            _printAmount(122, AgtotSamount, AgtotBamount, doc, aAgamount, false);
+                            _printAmount(160, AgtotSamount, AgtotBamount, doc, aAgamount, false);
+                            _printAmount(178, AgtotSamount, AgtotBamount, doc, aAgamount, false);
                             
                             var yPos = 217
                             doc.setFontSize(8)
@@ -317,17 +324,17 @@ sap.ui.define([
 
                             }
 
-                            var totSamount = 0;
-                            var totBamount = 0;
+                            var VentotSamount = 0;
+                            var VentotBamount = 0;
                             for (var i = 0; i < aVenamount.length; i++) {
-                                totSamount += Number(aVenamount[i].Samount);
-                                totBamount += Number(aVenamount[i].Bamount);
+                                VentotSamount += Number(aVenamount[i].Samount);
+                                VentotBamount += Number(aVenamount[i].Bamount);
                             }
                             // 숫자 48 000 000
 
-                            _printAmount(122, totSamount, totBamount, doc, aVenamount, true);
-                            _printAmount(160, totSamount, totBamount, doc, aVenamount, true);
-                            _printAmount(176, totSamount, totBamount, doc, aVenamount, true);
+                            _printAmount(122, VentotSamount, VentotBamount, doc, aVenamount, true);
+                            _printAmount(160, VentotSamount, VentotBamount, doc, aVenamount, true);
+                            _printAmount(176, VentotSamount, VentotBamount, doc, aVenamount, true);
                             
                             var yPos = 217
                             doc.setFontSize(8)
@@ -351,7 +358,7 @@ sap.ui.define([
                                     }
                                     doc.text(xPos, yPos, numstr); // 
                                     
-                                    xPos -= 7;
+                                    xPos -= 8;
                                 }
 
                                 var Bamount = aVenamount[i].Bamount;
@@ -369,7 +376,7 @@ sap.ui.define([
                                     }
                                     doc.text(xPos, yPos, numstr); // 
                                     
-                                    xPos -= 7;
+                                    xPos -= 8;
                                 }
 
                                 yPos += 7;
@@ -394,7 +401,7 @@ sap.ui.define([
 
                             doc.text(155, 65, "101-01-12345") // 사업자등록번호
                             doc.text(64, 65, "SYNC-REST")
-                            doc.text(64, 72, "김도현") // 성명(대표자)
+                            doc.text(64, 74, "김도현") // 성명(대표자)
 
                             var aOnamount = []
 
@@ -428,36 +435,86 @@ sap.ui.define([
 
                             }                            
 
-                            doc.text(80, 90, _oCount.toString()); // 매수
-                            doc.text(80, 130, _oCount.toString()); // 매수
-                            doc.text(100, 160, _oCount.toString()); // 매수
+                            doc.text(88, 101, _oCount.toString()); // 
+                            doc.text(88, 133, _oCount.toString()); // 
+                            doc.text(113, 165, _oCount.toString()); // 
 
-                            doc.text(150, 90, aOnamount[0].Samount.toString()); // 매수
-                            doc.text(150, 130, aOnamount[0].Samount.toString()); // 매수
-                            doc.text(145, 160, aOnamount[0].Samount.toString()); // 매수
+                            doc.text(118, 101, aOnamount[0].Samount.toString()); // 
+                            doc.text(118, 133, aOnamount[0].Samount.toString()); // 
+                            doc.text(138, 165, aOnamount[0].Samount.toString()); // 
+                            doc.text(160, 101, aOnamount[0].Bamount.toString()); // 
+                            doc.text(160, 133, aOnamount[0].Bamount.toString()); // 
+                            doc.text(167, 165, aOnamount[0].Bamount.toString()); // 
 
-                            doc.text(170, 90, aOnamount[0].Bamount.toString()); // 매수
-                            doc.text(170, 130, aOnamount[0].Bamount.toString()); // 매수
-                            doc.text(165, 160, aOnamount[0].Bamount.toString()); // 매수
-
-                            doc.text(74, 160, aOnamount[0].Venno); // 매수
-                            doc.text(40, 160, "2000-3000-xxxx-xxxx"); // 매수
-
-
-                            doc.save("SamplePDF.pdf");
+                            doc.setFontSize(8)
+                            doc.text(78, 165, aOnamount[0].Venno); // 
+                            doc.text(35, 165, "2000-3000-4444-5555"); // 
 
 
+//------------------------------------------------부가가치세 신고서 1pg-----------------------------------------------------------------------------------------
+
+                            doc.addPage();
+                            doc.setFontSize(8);                                        
+
+                            doc.addImage(pdfstr4, 'JPEG', 0, 0, 210, 290)
+
+
+                            doc.text(34, 55, _fiscal) // 연도
+                            doc.text(50, 55, _quarter.toString()) // 분기
+
+                            doc.text(59, 55, quarterdate[_quarter - 1].stmonth.toString()) //
+                            doc.text(67, 55, quarterdate[_quarter - 1].stday.toString()) // 
+
+                            doc.text(76, 55, quarterdate[_quarter - 1].edmonth.toString()) // 
+                            doc.text(83, 55, quarterdate[_quarter - 1].edday.toString()) // 
+
+                            doc.text(145, 59, "1  0  1       0  1       1  2  3  4  5") // 사업자등록번호
+                            doc.text(57, 60, "SYNC-REST")
+                            doc.text(100, 60, "김도현") // 성명(대표자)
+                            
+                            doc.text(59, 74, "종로구 종로2가") // 사업장 주소
+                            doc.text(100, 68, "010-1234-5678") // 전화번호
+                            doc.text(59, 68, "1999.12.31") // 생년월일
+
+                            doc.text(100, 89, AgtotSamount.toString())
+                            doc.text(160, 89, AgtotBamount.toString())
+                            
+                            doc.text(100, 120, AgtotSamount.toString())
+                            doc.text(160, 120, AgtotBamount.toString())
+
+                            doc.text(100, 125, VentotSamount.toString())
+                            doc.text(160, 125, VentotBamount.toString())
+
+                            doc.text(100, 143, aOnamount[0].Samount.toString())
+                            doc.text(160, 143, aOnamount[0].Bamount.toString())
+
+
+                            doc.text(100, 146, (aOnamount[0].Samount + VentotSamount).toString())
+                            doc.text(160, 146, (aOnamount[0].Bamount + VentotBamount).toString())
+
+                            doc.text(100, 153, (aOnamount[0].Samount + VentotSamount).toString())
+                            doc.text(160, 153, (aOnamount[0].Bamount + VentotBamount).toString())
+
+                            doc.setFontSize(20);
+                            doc.text(110, 33, 'V'); 
+
+//--------------------------------------------------------------------------------------------------------------------------------------
+
+                            doc.addPage();
+                            doc.setFontSize(8);                                        
+
+                            doc.addImage(pdfstr5, 'JPEG', 0, 0, 210, 290)
+
+                            doc.text(120, 80, aOnamount[0].Samount.toString()) 
+                            doc.text(165, 80, aOnamount[0].Bamount.toString()) 
+
+                            doc.text(120, 113, aOnamount[0].Samount.toString()) 
+                            doc.text(165, 113, aOnamount[0].Bamount.toString()) 
 
 
 
 
-
-
-
-
-
-
-
+                            doc.save("부가세신고서.pdf");
 
 
 
