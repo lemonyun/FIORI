@@ -50,9 +50,9 @@
                             <PropertyValue Property="Value" Path="Docdate"/>
                         </Record >
            
-                        <Record Type="UI.DataField">
+                        <!-- <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Vfiscal"/>
-                        </Record >
+                        </Record > -->
 
                         <Record Type="UI.DataField">
                             <PropertyValue Property="Value" Path="Venno"/>
