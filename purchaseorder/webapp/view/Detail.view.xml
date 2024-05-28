@@ -1,7 +1,7 @@
 <mvc:View controllerName="purchaseorder.controller.Detail"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m">
-    <Page id="idPage" title="title" showNavButton="true" navButtonPress="onNavBack"> <!-- nav버튼을 눌러 main 뷰로 돌아가기-->
+    <Page id="idPage" title="구매오더 아이템 조회" showNavButton="true" navButtonPress="onNavBack"> <!-- nav버튼을 눌러 main 뷰로 돌아가기-->
         <content>
             <Table id="idTable"                 
                 items="{
@@ -41,7 +41,10 @@
                         <cells>
                             <Text text="{Pocode}"/>
                             <Text text="{Matcode}" />
-                            <Text text="{Duedate}" />
+                            <Text text="{
+                                path : 'Duedate',
+                                formatter : '.fnDateToString'
+                            }" />
                             <Text text="{Matname}" />
                             <Text text="{Quant}" />
                             <Text text="{Unit}" />

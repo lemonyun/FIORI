@@ -16,6 +16,8 @@ sap.ui.define([
                 this.oRouter.getRoute("Detail").attachPatternMatched(
                     this._onObjectMatched, this);
                 
+
+                sap.ui.getCore().getConfiguration().getFormatSettings().setDatePattern("short", "YYYY-MM-DD");
             },
             _onObjectMatched: function(oEvent) {
 
@@ -40,6 +42,14 @@ sap.ui.define([
                 debugger;
                 this.oRouter.navTo('RouteMain', {
                 });
+            },
+            fnDateToString: function (sValue) {
+                if(sValue){
+                var oFormat = sap.ui.core.format.DateFormat.getDateInstance({
+                    pattern : 'yyyy-MM-dd'
+                });
+                return oFormat.format(sValue);
+                }
             }
 
 
