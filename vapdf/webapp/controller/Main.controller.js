@@ -97,8 +97,6 @@ sap.ui.define([
                 }
                 _quarter = oFilterData.Quarter.ranges[0].value1;
 
-
-
                 var filter = new sap.ui.model.Filter("Quarter", sap.ui.model.FilterOperator.EQ, _quarter);
                 var aFilters = [];
 
