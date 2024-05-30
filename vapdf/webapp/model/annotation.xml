@@ -20,6 +20,8 @@
                 <Annotation Term="UI.SelectionFields">
                     <Collection >
                         <PropertyPath>Quarter</PropertyPath>
+                        <PropertyPath>Vfiscal</PropertyPath>
+                        <PropertyPath>Taxcode</PropertyPath>
                         
                     </Collection>
                 </Annotation >

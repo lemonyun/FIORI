@@ -47,17 +47,36 @@
                         <Table sticky="ColumnHeaders,HeaderToolbar" growing="true" growingScrollToLoad="true" fixedLayout="false"
                                 itemPress="handleItemPress" mode="SingleSelectMaster">
                             <columns>
+
+                                <!-- <Column >
+                                    <customData>
+                                        <core:CustomData key="p13nData1" value='\{"columnKey": "Oddate", "leadingProperty": "Oddate", "columnIndex": 5, "visible": false}'/>
+                                    </customData>
+                                    <Text text="오더일자"></Text>
+                                    
+                                </Column> -->
                                 <Column>
                                     <customData>
-                                        <core:CustomData key="p13nData" value='\{"columnKey": "Checkstate", "leadingProperty": "Checkstate", "columnIndex": 5}'/>
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Checkstate", "leadingProperty": "Checkstate", "columnIndex": 6}'/>
                                     </customData>
                                     <Text text="승인상태"></Text>
+                                    
                                 </Column>
+
+                                <Column>
+                                    <customData>
+                                        <core:CustomData key="p13nData" value='\{"columnKey": "Oddate", "leadingProperty": "Oddate", "columnIndex": 5}'/>
+                                    </customData>
+                                    <Text text="오더일자"></Text>
+                                    
+                                </Column>
+
                             </columns>
 
                             <items>
                                 <ColumnListItem type="Navigation">
-                                    <ObjectStatus text="{= ${Checkstate} > '1' ? '승인' : '미승인'}" state="{path: 'Checkstate', formatter: '.formatter.checkstate'}"></ObjectStatus>
+                                    <ObjectStatus text="{= ${Checkstate} > '1' ? '승인' : '미승인'}" state="{path: 'Checkstate', formatter: '.formatter.checkstate'}"></ObjectStatus>                                    
+                                    <ObjectStatus text="{path: 'Oddate', formatter: '.fnDateToString'}"/>
                                 </ColumnListItem>
                             </items>
 

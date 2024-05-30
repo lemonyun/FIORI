@@ -1,6 +1,7 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "../controller/formatter",
+    "sap/ui/core/format/DateFormat"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -30,7 +31,16 @@ sap.ui.define([
                 //     key: oContext.getPath().substr(1)
                 // }, false);
 
+            },
+            fnDateToString: function (sValue) {
+                if(sValue){
+                var oFormat = sap.ui.core.format.DateFormat.getDateInstance({
+                    pattern : 'yyyy년 MM월 dd일'
+                });
+                return oFormat.format(sValue);
+                }
             }
+
             
         });
     });

@@ -46,7 +46,7 @@ sap.ui.define([
             fnDateToString: function (sValue) {
                 if(sValue){
                 var oFormat = sap.ui.core.format.DateFormat.getDateInstance({
-                    pattern : 'yyyy-MM-dd'
+                    pattern : 'yyyy년 MM월 dd일'
                 });
                 return oFormat.format(sValue);
                 }
