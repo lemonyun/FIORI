@@ -16,7 +16,7 @@
 
         
             <Annotations Target='ZBA_GW_FI_SRV.VAEntity'>
-            
+
                 <Annotation Term="UI.SelectionFields">
                     <Collection >
                         <PropertyPath>Quarter</PropertyPath>

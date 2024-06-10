@@ -67,8 +67,8 @@ sap.ui.define([
 
                 xPos -= 10;
             }
-
             doc.text(69, ypos, aAmount.length.toString()); 
+            debugger;
             if (bIsV) {
                 
                 doc.text(80, ypos, _vCount.toString()); // 매수 // 매입
@@ -82,10 +82,22 @@ sap.ui.define([
 
         return Controller.extend("vapdf.controller.Main", {
             onInit: function () {
-
+                var oSmartFilterBar = this.byId("idSmartFilterBar");
+                oSmartFilterBar.attachInitialized(this.onSmartFilterBarInitialized, this);
 
             },
-            onCreatePDF: function () {
+            onSmartFilterBarInitialized: function() {
+                var oSmartFilterBar = this.byId("idSmartFilterBar");
+                var oFilterData = {
+                    Quarter: 2,
+                    Vfiscal: 2024
+                };
+                oSmartFilterBar.setFilterData(oFilterData); 
+                debugger;
+            },
+            onCreatePDF: function () { 
+                _aCount = 0;
+                _vCount = 0;
                 oDataModel = this.getView().getModel();
 
                 var oSmartFilterBar = this.byId("idSmartFilterBar");
@@ -97,7 +109,14 @@ sap.ui.define([
                 }
                 _quarter = oFilterData.Quarter.ranges[0].value1;
 
+                if (oFilterData.Vfiscal == undefined) {
+                    sap.m.MessageToast.show("회계연도를 먼저 입력해주세요");
+                    return;
+                }
+                _fiscal = oFilterData.Vfiscal.ranges[0].value1;
+
                 var filter = new sap.ui.model.Filter("Quarter", sap.ui.model.FilterOperator.EQ, _quarter);
+                var filter1 = new sap.ui.model.Filter("Vfiscal", sap.ui.model.FilterOperator.EQ, _fiscal);
                 var aFilters = [];
 
                 aFilters.push(filter);
@@ -106,7 +125,7 @@ sap.ui.define([
                     filters: aFilters,
                     success: function (oReturn) {
                         console.log("전체조회: ", oReturn);
-                        _fiscal = oReturn.results[0].Vfiscal
+                        // _fiscal = oReturn.results[0].Vfiscal
 
                         var imgData = pdfstr1;
                         var doc = new jsPDF()
